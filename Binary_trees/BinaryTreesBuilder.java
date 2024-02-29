@@ -165,6 +165,29 @@ public class BinaryTreesBuilder {
             mirror(node.right);
         }
     }
+
+    // check if the tree is symmetric or not
+    public static boolean isSymmetric(Node root)
+    {
+        if(root == null){
+            return true;
+        }
+        return isMirror(root.left, root.right);
+    }
+    public static boolean isMirror(Node left, Node right){
+        if(left == null && right == null){
+            return true;
+        }
+        if(left == null || right == null){
+            return false;
+        }
+        if(left.data == right.data){
+            return isMirror(left.left, right.right) && isMirror(left.right, right.left);
+        }
+        return false;
+    }
+
+
     public static void main(String[] args) {
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree = new BinaryTree();
