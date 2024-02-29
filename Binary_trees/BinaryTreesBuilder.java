@@ -188,6 +188,30 @@ public class BinaryTreesBuilder {
     }
 
 
+    // check if the tree is balanced or not
+    static int heightTree(Node root){
+        if(root == null){
+            return 0;
+        }
+        int leftHeight = heightTree(root.left);
+        int rightHeight = heightTree(root.right);
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+    boolean isBalanced(Node root)
+    {
+	    if(root == null){
+	        return true;
+	    }
+	    int leftHeight = heightTree(root.left);
+	    int rightHeight = heightTree(root.right);
+	    if(Math.abs(leftHeight - rightHeight) <=1){
+	        return isBalanced(root.left) && isBalanced(root.right);
+	    }
+	    return false;
+    }
+
+
+
     public static void main(String[] args) {
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         BinaryTree tree = new BinaryTree();
