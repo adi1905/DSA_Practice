@@ -151,6 +151,19 @@ public class BinaryTreesBuilder {
             }
             return false;
 	    }
+        //print the mirror of a tree
+        void mirror(Node node) {
+            // Your code here
+            if(node == null){
+                return;
+            }
+            Node temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+            
+            mirror(node.left);
+            mirror(node.right);
+        }
     }
     public static void main(String[] args) {
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
