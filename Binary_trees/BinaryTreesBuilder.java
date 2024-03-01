@@ -210,8 +210,8 @@ public class BinaryTreesBuilder {
 	    return false;
     }
 
-    //Function to check whether all nodes of a tree have the value 
-    //equal to the sum of their child nodes
+    //Function to check whether all nodes of a tree have the value equal to the sum of their child nodes
+
     public static int isSumProperty(Node root)
     {
         if(root == null){
