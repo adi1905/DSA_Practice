@@ -83,19 +83,37 @@ public class binarySearchBuilder {
         }
         return root;
     }
+
+    public static void printInRange(Node root,int x, int y){
+        if(root == null){
+            return;
+        }
+        if(root.data >=x && root.data <=y){
+            printInRange(root.left, x, y);
+            System.out.print(root.data + " ");
+            printInRange(root.right, x, y);
+        }
+        else if(root.data >=y){
+            printInRange(root.left, x, y);
+        }else{
+            printInRange(root.right, x, y);
+        }
+    }
     public static void main(String[] args) {
         int values[] = {5,1,3,4,2,7};
         Node root = null;
         for(int i=0;i<values.length;i++){
             root = insert(root, values[i]);
         }
-        inOrder(root);
-        System.out.println();
+        // inOrder(root);
+        // System.out.println();
         // boolean isPresent = searchInBST(root, 6);
         // System.out.println(isPresent);
 
-        delete(root, 3);
-        inOrder(root);
-        System.out.println();
+        // delete(root, 3);
+        // inOrder(root);
+        // System.out.println();
+
+        printInRange(root, 3, 7);
     }
 }
